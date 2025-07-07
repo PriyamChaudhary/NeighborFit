@@ -62,7 +62,7 @@ function App() {
     if (step === questions.length && Object.keys(answers).length === questions.length) {
       setLoading(true);
       setError("");
-      fetch("http://localhost:3001/api/match", {
+      fetch("https://neighborfit-8u4p.onrender.com/api/match", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(answers),

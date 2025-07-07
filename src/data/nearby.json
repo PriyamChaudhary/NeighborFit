@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Phagwara Jn Station",
+    "type": "Transport",
+    "distance_km": 9.7,
+    "transport": 9,
+    "safety": 7,
+    "noise": 6,
+    "airQuality": 50,
+    "rent": null
+  },
+  {
+    "id": 2,
+    "name": "Rishabh Café",
+    "type": "Cafe",
+    "distance_km": 1,
+    "transport": 8,
+    "safety": 8,
+    "noise": 5,
+    "airQuality": 55,
+    "rent": null
+  },
+  {
+    "id": 3,
+    "name": "1 BHK Flat (Law Gate)",
+    "type": "Housing",
+    "distance_km": 5,
+    "transport": 7,
+    "safety": 8,
+    "noise": 4,
+    "airQuality": 52,
+    "rent": 8500
+  },
+  {
+    "id": 4,
+    "name": "2 BHK House (Chahal Nagar)",
+    "type": "Housing",
+    "distance_km": 6,
+    "transport": 7,
+    "safety": 7,
+    "noise": 5,
+    "airQuality": 55,
+    "rent": 6000
+  },
+  {
+    "id": 5,
+    "name": "PG Twin-Sharing (Law Gate)",
+    "type": "Housing",
+    "distance_km": 5,
+    "transport": 7,
+    "safety": 8,
+    "noise": 5,
+    "airQuality": 54,
+    "rent": 8000
+  },
+  {
+    "id": 6,
+    "name": "Green Avenue PG (GT Road)",
+    "type": "Housing",
+    "distance_km": 6.4,
+    "transport": 6,
+    "safety": 7,
+    "noise": 6,
+    "airQuality": 60,
+    "rent": 6000
+  },
+  {
+    "id": 7,
+    "name": "Independent PG Room (Surya Enclave)",
+    "type": "Housing",
+    "distance_km": 7,
+    "transport": 6,
+    "safety": 7,
+    "noise": 6,
+    "airQuality": 58,
+    "rent": 7000
+  },
+  {
+    "id": 8,
+    "name": "Studio Flat (Maheru)",
+    "type": "Housing",
+    "distance_km": 8,
+    "transport": 6,
+    "safety": 7,
+    "noise": 6,
+    "airQuality": 60,
+    "rent": 20000
+  },
+  {
+    "id": 9,
+    "name": "2 BHK House (Satnampura)",
+    "type": "Housing",
+    "distance_km": 8,
+    "transport": 6,
+    "safety": 8,
+    "noise": 5,
+    "airQuality": 55,
+    "rent": 16000
+  },
+  {
+    "id": 10,
+    "name": "3 BHK House (Hadiabad)",
+    "type": "Housing",
+    "distance_km": 4,
+    "transport": 7,
+    "safety": 8,
+    "noise": 5,
+    "airQuality": 53,
+    "rent": 15000
+  }
+]

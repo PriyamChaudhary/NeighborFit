@@ -1,7 +1,10 @@
+// App.jsx
+// Main React component for the NeighborFit app. Handles user input, displays questions, and shows neighborhood matches.
 import React, { useState } from "react";
 import "./App.css";
 import { FaCoffee, FaSchool, FaParking, FaBus, FaStar, FaMapMarkerAlt } from "react-icons/fa";
 
+// List of features to display as icons on the UI
 const features = [
   { icon: <FaCoffee className="text-2xl text-amber-500" />, label: "Cafés & Dining" },
   { icon: <FaSchool className="text-2xl text-emerald-500" />, label: "Schools" },
@@ -9,6 +12,7 @@ const features = [
   { icon: <FaBus className="text-2xl text-purple-500" />, label: "Public Transit" },
 ];
 
+// List of questions to ask the user for preferences
 const questions = [
   { key: "transport", text: "How important is transport accessibility?", desc: "Rate from 1-10 to help us find the perfect match", min: 1, max: 10, type: 'slider', left: "Not Important", right: "Very Important" },
   { key: "safety", text: "How important is safety?", desc: "Rate from 1-10 to help us find the perfect match", min: 1, max: 10, type: 'slider', left: "Not Important", right: "Very Important" },
@@ -18,6 +22,7 @@ const questions = [
 ];
 
 function App() {
+  // State variables for step in the quiz, user answers, match results, loading state, input value, and error message
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [matches, setMatches] = useState(null);
@@ -25,7 +30,7 @@ function App() {
   const [inputValue, setInputValue] = useState(questions[0].min);
   const [error, setError] = useState("");
 
-  // For custom slider fill color
+  // Returns a style object for the slider background fill
   const getSliderBackground = (min, max, value) => {
     const percent = ((value - min) * 100) / (max - min);
     // Use blue for filled, and light blue for unfilled
@@ -34,6 +39,7 @@ function App() {
     };
   };
 
+  // Handles storing the user's answer and moving to the next question
   const handleAnswer = () => {
     const q = questions[step];
     let value = inputValue;
@@ -50,6 +56,7 @@ function App() {
     setStep((prev) => prev + 1);
   };
 
+  // Resets the quiz to the beginning
   const handleRestart = () => {
     setStep(0);
     setAnswers({});
@@ -58,6 +65,7 @@ function App() {
     setError("");
   };
 
+  // When all questions are answered, send answers to backend and fetch matches
   React.useEffect(() => {
     if (step === questions.length && Object.keys(answers).length === questions.length) {
       setLoading(true);
@@ -84,7 +92,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col app-background">
-      {/* Header */}
+      {/* Header section with logo and title */}
       <header className="header-container">
         <div className="flex items-center gap-4 mb-3">
           <div className="logo-container">
@@ -99,6 +107,7 @@ function App() {
       {/* Main Content */}
       <div className="main-content-center">
         <div className="app-card">
+          {/* Error message if fetch fails */}
           {error && (
             <div className="error-message">{error}</div>
           )}
@@ -113,9 +122,11 @@ function App() {
             ))}
           </div>
 
+          {/* Show matches if available, loading spinner, or questions */}
           {matches ? (
             matches.length > 0 ? (
               <div className="results-container">
+                {/* Display matched neighborhoods */}
                 <h2 className="results-title">Your Perfect Matches</h2>
                 <div className="matches-grid">
                   {matches.map((n, i) => (
@@ -165,7 +176,7 @@ function App() {
                         )}
                       </div>
                       
-                      <button className="explore-btn">
+                      <button className="explore-btn" onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(n.address)}`, '_blank')}>
                         Explore Neighborhood
                       </button>
                     </div>
@@ -177,6 +188,7 @@ function App() {
               </div>
             ) : (
               <div className="no-matches">
+                {/* ... existing code ... */}
                 <div className="no-matches-icon">🏠</div>
                 <h3>No matches found</h3>
                 <p>Try adjusting your preferences to find more options</p>
@@ -187,6 +199,7 @@ function App() {
             )
           ) : loading ? (
             <div className="loading-container">
+              {/* ... existing code ... */}
               <div className="loading-spinner"></div>
               <h3>Finding Your Perfect Match</h3>
               <p>Analyzing neighborhoods based on your preferences...</p>
@@ -194,6 +207,7 @@ function App() {
           ) : (
             step < questions.length ? (
               <div className="question-container">
+                {/* Display current question and input */}
                 <div className="question-content">
                   <div className="question-header">
                     <h2 className="question-title">{questions[step].text}</h2>

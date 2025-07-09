@@ -1,0 +1,21 @@
+nearby.json - Data Documentation
+================================
+
+Purpose:
+--------
+This file (nearby.json) contains an array of objects representing neighborhoods, housing options, and amenities used for matching in the NeighborFit app.
+
+Structure of Each Object:
+------------------------
+- id: Unique identifier (number)
+- name: Name of the location (string)
+- type: Category (e.g., 'Housing', 'Cafe', 'Transport') (string)
+- distance_km: Distance from reference point in kilometers (number)
+- transport: Transport accessibility score (1-10) (number)
+- safety: Safety score (1-10) (number)
+- noise: Noise level score (1-10) (number)
+- airQuality: Air quality index (number)
+- rent: Monthly rent in INR (number or null if not applicable)
+- address: Full address (string)
+
+This file is used by the backend server to find the best neighborhood matches based on user preferences. 
